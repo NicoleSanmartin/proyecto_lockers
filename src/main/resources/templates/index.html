@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Lockers</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header>
+    <h1>Gestión de Lockers</h1>
+    <p>Administra el alquiler y liberación de lockers fácilmente</p>
+</header>
+
+<main class="container">
+    <!-- Mensajes de éxito o error -->
+    <div class="mensajes">
+        <div th:if="${success}" class="alert success" th:text="${success}"></div>
+        <div th:if="${error}" class="alert error" th:text="${error}"></div>
+    </div>
+
+    <!-- Tabla de lockers -->
+    <section class="lockers-section">
+        <h2>Estado de Lockers</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Disponibilidad</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="locker : ${lockers}">
+                <td th:text="${locker.id}"></td>
+                <td th:text="${locker.disponible ? 'Libre' : 'Ocupado'}"
+                    th:classappend="${locker.disponible ? 'libre' : 'ocupado'}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Formulario de alquiler -->
+    <section class="form-section">
+        <h2>Alquilar Locker</h2>
+        <form action="/alquilar" method="post">
+            <label for="lockerId">ID del Locker:</label>
+            <input type="number" id="lockerId" name="lockerId" required>
+
+            <label for="nombre">Nombre del Estudiante:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="documento">Documento:</label>
+            <input type="text" id="documento" name="documento" required>
+
+            <button type="submit">Alquilar</button>
+        </form>
+    </section>
+
+    <!-- Formulario de liberación -->
+    <section class="form-section">
+        <h2>Liberar Locker</h2>
+        <form action="/liberar" method="post">
+            <label for="lockerIdLiberar">ID del Locker:</label>
+            <input type="number" id="lockerIdLiberar" name="lockerId" required>
+
+            <button type="submit" class="btn-liberar">Liberar</button>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>Proyecto Lockers © 2025 - Desarrollado por Nicole Sanmartín</p>
+</footer>
+
+<!-- Script -->
+<script src="/js/main.js"></script>
+</body>
+</html>
