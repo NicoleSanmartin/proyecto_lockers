@@ -1,22 +1,38 @@
 package com.lockers.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
+import java.util.List;
+
+@Entity
+@Table(name = "lockers")
 public class Locker {
-    private int id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String ubicacion;
     private boolean disponible;
 
-    public Locker(int id) {
-        this.id = id;
-        this.disponible = true;
+    @OneToMany(mappedBy = "locker", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference // ✅ evita recursión infinita al serializar
+    private List<Alquiler> alquileres;
+
+    public Locker() {}
+
+    public Locker(String ubicacion, boolean disponible) {
+        this.ubicacion = ubicacion;
+        this.disponible = disponible;
     }
 
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
-
+    public Long getId() { return id; }
+    public String getUbicacion() { return ubicacion; }
     public boolean isDisponible() { return disponible; }
+
+    public void setUbicacion(String ubicacion) { this.ubicacion = ubicacion; }
     public void setDisponible(boolean disponible) { this.disponible = disponible; }
 
-    @Override
-    public String toString() {
-        return "Locker " + id + " - " + (disponible ? "Libre" : "Ocupado");
-    }
+    public List<Alquiler> getAlquileres() { return alquileres; }
+    public void setAlquileres(List<Alquiler> alquileres) { this.alquileres = alquileres; }
 }
