@@ -1,8 +1,15 @@
 package com.lockers.model;
+//Locker
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
+@Entity
 public class Locker {
+    @Id
     private int id;
-    private boolean disponible;
+    private boolean disponible = true;
+
+    public Locker() { }
 
     public Locker(int id) {
         this.id = id;

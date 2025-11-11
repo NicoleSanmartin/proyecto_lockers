@@ -1,77 +1,33 @@
 package com.lockers.service;
-
-import com.lockers.model.Alquiler;
-import com.lockers.model.Estudiante;
+//LockerService
 import com.lockers.model.Locker;
 import com.lockers.repository.LockerRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
+@Service
 public class LockerService {
-    private LockerRepository repository;
+    private final LockerRepository repository;
 
     public LockerService(LockerRepository repository) {
         this.repository = repository;
     }
 
-    // === Registrar entidades ===
-    public void registrarEstudiante(String nombre, String documento) {
-        repository.addEstudiante(new Estudiante(nombre, documento));
-        System.out.println("Estudiante registrado (si no existía).");
+    public List<Locker> obtenerLockers() {
+        return repository.findAll();
     }
 
-    public void registrarLocker(int id) {
-        repository.addLocker(new Locker(id));
+    public Locker buscarLocker(int id) {
+        return repository.findById(id).orElseThrow(() -> new RuntimeException("Locker no encontrado"));
     }
 
-    // === Alquiler de lockers ===
-    public boolean alquilarLocker(String documento, int lockerId) {
-        Estudiante estudiante = repository.findEstudianteByDocumento(documento);
-        if (estudiante == null) {
-            System.out.println("El estudiante no está registrado.");
-            return false;
-        }
-
-        List<Locker> lockers = repository.getLockers();
-        Optional<Locker> lockerOpt = lockers.stream()
-                .filter(l -> l.getId() == lockerId && l.isDisponible())
-                .findFirst();
-
-        if (lockerOpt.isPresent()) {
-            Locker locker = lockerOpt.get();
-            repository.addAlquiler(new Alquiler(estudiante, locker));
-            System.out.println("Locker alquilado correctamente.");
-            return true;
-        } else {
-            System.out.println("El locker no está disponible.");
-            return false;
-        }
+    public Locker registrarLocker(Locker locker) {
+        return repository.save(locker);
     }
 
-    // === Liberar lockers ===
-    public boolean liberarLocker(int lockerId) {
-        boolean result = repository.liberarLocker(lockerId);
-        if (result) {
-            System.out.println("Locker liberado.");
-        } else {
-            System.out.println("No se pudo liberar el locker.");
-        }
-        return result;
-    }
-
-    // === Mostrar datos ===
-    public void mostrarLockers() {
-        for (Locker l : repository.getLockers()) {
-            System.out.println("Locker " + l.getId() + ": " + (l.isDisponible() ? "Disponible" : "Ocupado"));
-        }
-    }
-
-    public void mostrarAlquileres() {
-        for (Alquiler a : repository.getAlquileres()) {
-            System.out.println("Locker " + a.getLocker().getId() +
-                    " alquilado por " + a.getEstudiante().getNombre() +
-                    " desde " + a.getFechaInicio());
-        }
+    public Locker actualizarEstado(Locker locker, boolean disponible) {
+        locker.setDisponible(disponible);
+        return repository.save(locker);
     }
 }

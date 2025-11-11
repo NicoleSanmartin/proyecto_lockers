@@ -1,8 +1,8 @@
 package com.lockers.repository;
-//LockerRepository
-import com.lockers.model.Locker;
+//EstudianteRepository
+import com.lockers.model.Estudiante;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface LockerRepository extends JpaRepository<Locker, Integer> { }
+public interface EstudianteRepository extends JpaRepository<Estudiante, String> { }
