@@ -42,4 +42,17 @@ Integración con pagos o facturación.
 Autenticación de usuarios.
 Envío de notificaciones.
 
+🎯 Ejecución local
+Clonar el repositorio:
+|git clone https://github.com/usuario/proyecto-lockers.git|
+
+Abrir el proyecto en IntelliJ.
+Ejecutar la clase:
+
+|ProyectoLockersApplication.java|
+
+Acceder a:
+http://localhost:8080/swagger-ui.html
+
+
 🧑‍💻 Autor Nicole Sanmartín - Alhan Rendon
