@@ -1,4 +1,4 @@
-#🎒 Proyecto Lockers — Sistema de Gestión de Lockers Escolares
+#🎒 Proyecto Lockers — Sistema de Gestión de Lockers Escolares#
 
 Aplicación web desarrollada con Spring Boot 3 y Java 21, que permite gestionar el alquiler de lockers en una institución educativa.
 El sistema ofrece funcionalidades para registrar estudiantes, administrar lockers, alquilar y liberar casilleros, garantizando trazabilidad y control en el uso de los mismos.
