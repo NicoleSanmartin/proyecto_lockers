@@ -4,15 +4,14 @@ Aplicación web desarrollada con Spring Boot 3 y Java 21, que permite gestionar 
 El sistema ofrece funcionalidades para registrar estudiantes, administrar lockers, alquilar y liberar casilleros, garantizando trazabilidad y control en el uso de los mismos.
 
 🚀 Tecnologías Utilizadas
-Categoría	Tecnologías
-Lenguaje               	   |Java 21 (Amazon Corretto)
-Framework                  |backend	Spring Boot 3.3.5
-Arquitectura      	       |MVC / Arquitectura por capas (Controller, Service, Repository, Model)
-Base de datos       	     |SQLite (JDBC)
-API Documentation	         |Springdoc OpenAPI / Swagger UI
-Gestión de dependencias	   |Maven
-IDE sugerido	             |IntelliJ IDEA o Eclipse
-Control de versiones	     |Git & GitHub
+Lenguaje               	   |Java 21 (Amazon Corretto)| 
+Framework                  |backend	Spring Boot 3.3.5| 
+Arquitectura      	       |MVC / Arquitectura por capas (Controller, Service, Repository, Model)| 
+Base de datos       	     |SQLite (JDBC)| 
+API Documentation	         |Springdoc OpenAPI / Swagger UI| 
+Gestión de dependencias	   |Maven| 
+IDE sugerido	             |IntelliJ IDEA o Eclipse| 
+Control de versiones	     |Git & GitHub| 
 
 💡 Definición del Proyecto de Software
 Proyecto Lockers es un sistema de información diseñado para digitalizar la administración de lockers escolares, reemplazando el manejo manual de asignaciones y entregas por un sistema web eficiente, seguro y auditable.
