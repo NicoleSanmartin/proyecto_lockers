@@ -1,75 +1,45 @@
-# Proyecto Lockers
+🎒 Proyecto Lockers — Sistema de Gestión de Lockers Escolares
 
-Sistema de Alquiler de Lockers en Java 21
+Aplicación web desarrollada con Spring Boot 3 y Java 21, que permite gestionar el alquiler de lockers en una institución educativa.
+El sistema ofrece funcionalidades para registrar estudiantes, administrar lockers, alquilar y liberar casilleros, garantizando trazabilidad y control en el uso de los mismos.
 
-## Descripción
-Este proyecto implementa un sistema en **Java 21** que permite:
-- Registrar estudiantes
-- Registrar lockers
-- Alquilar lockers disponibles
-- Liberar lockers ocupados
-- Mostrar el listado de lockers
-- Ver el historial de alquileres
+🚀 Tecnologías Utilizadas
+Lenguaje:                  |Java 21 (Amazon Corretto)| 
+Framework:                 |backend	Spring Boot 3.3.5| 
+Arquitectura:      	       |MVC / Arquitectura por capas (Controller, Service, Repository, Model)| 
+Base de datos:       	     |SQLite (JDBC)| 
+API Documentation:	       |Springdoc OpenAPI / Swagger UI| 
+Gestión de dependencias:   |Maven| 
+IDE sugerido:	             |IntelliJ IDEA o Eclipse| 
+Control de versiones:	     |Git & GitHub| 
 
-La aplicación está desarrollada siguiendo el patrón de **arquitectura en capas**:
-- **Controller**: Maneja la interacción con el usuario (consola)
-- **Service**: Contiene la lógica de negocio
-- **Repository**: Gestiona la persistencia de datos con JDBC (SQLite)
-- **Model**: Define las entidades principales (Estudiante, Locker, Alquiler)
+💡 Definición del Proyecto de Software
+Proyecto Lockers es un sistema de información diseñado para digitalizar la administración de lockers escolares, reemplazando el manejo manual de asignaciones y entregas por un sistema web eficiente, seguro y auditable.
 
+El software se desarrolla bajo una metodología incremental, implementando principios de la ingeniería de software y siguiendo la arquitectura por capas para lograr una solución escalable y mantenible.
 
-## Estructura del proyecto
-```
-src/
- └── main/java/com/lockers/
-     ├── controller/LockerController.java
-     ├── service/LockerService.java
-     ├── repository/LockerRepository.java
-     └── model/
-         ├── Estudiante.java
-         ├── Locker.java
-         └── Alquiler.java
-```
+🎯 Objetivos SMART
+##Tipo	Descripción
+Específico	Desarrollar una aplicación web que permita registrar, alquilar y liberar lockers, asociándolos a estudiantes de una institución.
+Medible	Lograr que al menos el 100% de los lockers puedan gestionarse digitalmente, sin intervención manual.
+Alcanzable	Implementar las funcionalidades utilizando tecnologías accesibles (Spring Boot y SQLite), garantizando compatibilidad multiplataforma.
+Relevante	Automatizar un proceso institucional frecuente, optimizando tiempo y reduciendo errores humanos.
+Temporal	Completar la implementación y pruebas en un periodo máximo de 4 semanas.
 
-## Instalación y ejecución
-1. Clonar el repositorio o descargar el zip.
-2. Compilar con Maven:
-   ```bash
-   mvn clean compile
-   ```
-3. Ejecutar la aplicación con:
-   ```bash
-   mvn exec:java
-   ```
+🧩 Alcance del Sistema
 
-## Uso
-El sistema mostrará un menú en consola con las siguientes opciones:
-```
-===== SISTEMA DE LOCKERS =====
-1. Registrar estudiante
-2. Alquilar locker
-3. Liberar locker
-4. Ver lockers
-5. Ver historial de alquileres 
-0. Salir
-```
-## Ejemplo de uso
-```
-===== SISTEMA DE LOCKERS =====
+##✅ Funcionalidades incluidas
+Registro de estudiantes.
+Registro y gestión de lockers.
+Asignación de lockers a estudiantes (alquiler).
+Liberación de lockers.
+Consulta del estado de todos los lockers.
+Historial de alquileres.
+Documentación de la API REST mediante Swagger.
 
-   Seleccione una opción: 1
-   Nombre: Juan Perez
-   Documento: 123
-   Estudiante registrado (si no existía).
-   
-   Continue eligiendo opciones, alquilando 
-   lockers y corroborando que aparezca ocupado 
-```
+##🚫 Fuera de alcance
+Integración con pagos o facturación.
+Autenticación de usuarios.
+Envío de notificaciones.
 
-## Autor
-Proyecto desarrollado como práctica académica para aplicar principios de:
-- Programación Orientada a Objetos
-- Encapsulamiento y modularidad
-- Arquitectura en capas
-- Persistencia con JDBC (SQLite)
-- Uso de Git y GitHub para control de versiones
+🧑‍💻 Autor Nicole Sanmartín - Alhan Rendon
