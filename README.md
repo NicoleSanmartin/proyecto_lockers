@@ -42,26 +42,13 @@ Integración con pagos o facturación.
 Autenticación de usuarios.
 Envío de notificaciones.
 
-Diagrama ER
+# Diagrama ER
 
-ESTUDIANTE {
-        string documento PK
-        string nombre
-    }
-    LOCKER {
-        int id PK
-        boolean disponible
-    }
-    ALQUILER {
-        long id PK
-        datetime fechaInicio
-        string estado
-        string estudiante_documento FK
-        int locker_id FK
-    }
+<img width="960" height="507" alt="image" src="https://github.com/user-attachments/assets/cc52511a-c4a8-4ae3-8b63-de1c6780118a" />
 
-    ESTUDIANTE ||--|{ ALQUILER : "realiza"
-    LOCKER ||--|{ ALQUILER : "es parte de"
+# Diagrama de clases
+<img width="1302" height="795" alt="image" src="https://github.com/user-attachments/assets/4ca937cf-98ee-4c0b-814f-04cd6f04ae79" />
+
     
 🎯 Ejecución local
 Clonar el repositorio:
