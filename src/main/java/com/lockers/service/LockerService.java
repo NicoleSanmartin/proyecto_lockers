@@ -30,4 +30,11 @@ public class LockerService {
         locker.setDisponible(disponible);
         return repository.save(locker);
     }
+
+    protected Locker buscarEntidadLocker(int id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Locker no encontrado"));
+    }
+
 }
+

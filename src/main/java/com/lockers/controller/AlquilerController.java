@@ -1,6 +1,7 @@
 package com.lockers.controller;
-//AlquilerController
-import com.lockers.model.Alquiler;
+
+import com.lockers.dto.AlquilerDTO;
+import com.lockers.dto.AlquilerRequestDTO;
 import com.lockers.service.AlquilerService;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -14,9 +15,10 @@ public class AlquilerController {
         this.service = service;
     }
 
-    @PostMapping("/alquilar")
-    public Alquiler alquilar(@RequestParam String documento, @RequestParam int lockerId) {
-        return service.alquilarLocker(documento, lockerId);
+    // Endpoint mejorado: más RESTful y usa DTO
+    @PostMapping
+    public AlquilerDTO alquilar(@RequestBody AlquilerRequestDTO requestDTO) {
+        return service.alquilarLocker(requestDTO);
     }
 
     @PutMapping("/liberar/{lockerId}")
@@ -25,7 +27,7 @@ public class AlquilerController {
     }
 
     @GetMapping
-    public List<Alquiler> listar() {
+    public List<AlquilerDTO> listar() { // Retorna lista de DTOs
         return service.obtenerAlquileres();
     }
 }

@@ -1,6 +1,6 @@
 package com.lockers.controller;
-//EstudianteController
-import com.lockers.model.Estudiante;
+
+import com.lockers.dto.EstudianteDTO; // Import DTO
 import com.lockers.service.EstudianteService;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,12 +14,12 @@ public class EstudianteController {
     }
 
     @PostMapping
-    public Estudiante registrar(@RequestBody Estudiante estudiante) {
+    public EstudianteDTO registrar(@RequestBody EstudianteDTO estudiante) { // Usa DTO
         return service.registrar(estudiante);
     }
 
     @GetMapping("/{documento}")
-    public Estudiante buscar(@PathVariable String documento) {
+    public EstudianteDTO buscar(@PathVariable String documento) { // Retorna DTO
         return service.buscarPorDocumento(documento);
     }
 }
