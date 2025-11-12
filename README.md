@@ -42,6 +42,27 @@ Integración con pagos o facturación.
 Autenticación de usuarios.
 Envío de notificaciones.
 
+Diagrama ER
+
+ESTUDIANTE {
+        string documento PK
+        string nombre
+    }
+    LOCKER {
+        int id PK
+        boolean disponible
+    }
+    ALQUILER {
+        long id PK
+        datetime fechaInicio
+        string estado
+        string estudiante_documento FK
+        int locker_id FK
+    }
+
+    ESTUDIANTE ||--|{ ALQUILER : "realiza"
+    LOCKER ||--|{ ALQUILER : "es parte de"
+    
 🎯 Ejecución local
 Clonar el repositorio:
 |git clone https://github.com/usuario/proyecto-lockers.git|
@@ -50,6 +71,8 @@ Abrir el proyecto en IntelliJ.
 Ejecutar la clase:
 
 |ProyectoLockersApplication.java|
+
+
 
 Acceder a:
 http://localhost:8080/swagger-ui.html
