@@ -44,7 +44,8 @@ Envío de notificaciones.
 
 # Diagrama ER
 
-<img width="960" height="507" alt="image" src="https://github.com/user-attachments/assets/cc52511a-c4a8-4ae3-8b63-de1c6780118a" />
+<img width="780" height="413" alt="image" src="https://github.com/user-attachments/assets/f692a31b-c4f7-4abf-ba37-3611fb8df84d" />
+
 
 # Diagrama de clases
 <img width="1302" height="795" alt="image" src="https://github.com/user-attachments/assets/4ca937cf-98ee-4c0b-814f-04cd6f04ae79" />
